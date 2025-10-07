@@ -1,73 +1,45 @@
-# React + TypeScript + Vite
+# Min-Commerce
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Min-Commerce es un e-commerce fullstack desarrollado con React y TypeScript. Este proyecto forma parte del Laboratorio 23, enfocado en aplicar fundamentos de TypeScript en componentes React y crear una estructura base para un catálogo de productos.
 
-Currently, two official plugins are available:
+## Modelo del Producto
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+El modelo de datos para los productos está definido en `src/models/products.ts` mediante la interface `Product`:
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```typescript
+export interface Product {
+  id: string;
+  name: string;
+  price: number;
+  imageUrl: string;
+  category: string;
+  onSale?: boolean;
+}
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Componentes Implementados
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+1. **ProductCard**: Componente que muestra la información de un producto individual.
+   - Props tipadas: `product: Product`
+   - Renderiza: nombre, precio, imagen, categoría y tag de "En Oferta" si corresponde.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+2. **ProductList**: Componente que renderiza una lista de productos utilizando `ProductCard`.
+
+3. **ProductTag**: Componente que muestra un tag "En Oferta" para productos en promoción.
+
+## Tecnologías Utilizadas
+
+- Frontend: React + TypeScript
+- Framework CSS: Tailwind
+- Iconos: Lucide React
+
+## Instrucciones de Ejecución
+
+1. Clonar el repositorio: `git clone https://github.com/tu-usuario/min-commerce.git`
+2. Instalar dependencias: `npm install`
+3. Ejecutar en desarrollo: `npm run dev`
+
+## Links
+
+- [Repositorio en GitHub](https://github.com/CattCloud/min-commerce)
+- [Sitio desplegado en Netlify](https://min-commerce.netlify.app/)
