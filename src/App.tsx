@@ -1,4 +1,3 @@
-import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 // Asegúrate de que este archivo exista: src/context/CartContext.tsx
 import { CartProvider } from './context/cart/CartProvider'; 

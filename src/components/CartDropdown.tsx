@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { Trash2, X } from 'lucide-react';
 import { useCart } from '../context/cart/CartContext';

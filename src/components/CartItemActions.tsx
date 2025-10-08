@@ -1,4 +1,3 @@
-import React from 'react';
 import { Trash2 } from 'lucide-react';
 import { useCart } from '../context/cart/CartContext';
 import type { CartItem } from '../models/cart';
