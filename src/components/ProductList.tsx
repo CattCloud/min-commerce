@@ -2,7 +2,6 @@ import React from 'react';
 import type { Product } from '../models/products';
 import ProductCard from './ProductCard'; 
 
-
 interface ProductListProps {
   products: Product[]; 
 }
@@ -15,7 +14,7 @@ const ProductList: React.FC<ProductListProps> = ({ products }) => {
     sm:grid-cols-2 
     lg:grid-cols-3 
     xl:grid-cols-4 
-    gap-8 p-4 md:p-8
+    gap-8 p-4
   `;
 
   if (products.length === 0) {
